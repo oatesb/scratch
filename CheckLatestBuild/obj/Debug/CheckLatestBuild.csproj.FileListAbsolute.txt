@@ -1,0 +1,6 @@
+C:\Source\scratch\CheckLatestBuild\bin\Debug\CheckLatestBuild.exe.config
+C:\Source\scratch\CheckLatestBuild\bin\Debug\CheckLatestBuild.exe
+C:\Source\scratch\CheckLatestBuild\bin\Debug\CheckLatestBuild.pdb
+C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.csprojResolveAssemblyReference.cache
+C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.exe
+C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.pdb
