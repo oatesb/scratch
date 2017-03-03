@@ -1,0 +1,14 @@
+[SearchGoldAccess]
+
+; Name              - SGGroups
+; Description       - The security groups which have access to the environment directory in
+;                     SearchGold
+; Units             - Text
+; Default           - None
+SGGroups=redmond\spse,  Redmond\ReputationServices-DEV-AP-Access
+
+; Name              - SGUsers
+; Description       - The users which have access to the environment directory in SearchGold
+; Units             - Text
+; Default           - None
+SGUsers=REDMOND\trdavis

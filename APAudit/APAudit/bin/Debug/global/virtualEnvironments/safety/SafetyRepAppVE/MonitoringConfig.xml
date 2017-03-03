@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- SafetyReppAppVE -->
+<Files>
+  <Alerts>
+    <File dir="Global">AutopilotClient\AutopilotClient-AlertService.xml</File>
+    <File dir="Global">AutopilotClient\AutopilotClient-AlertSettings.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\ARSWebSvc\ARSWebSvc-AlertService.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\ARSWebSvc\ARSWebSvc-AlertSettings.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\TELWebSvc\TELWebSvc-AlertService.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\TELWebSvc\TELWebSvc-AlertSettings.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\URSWebSvc\URSWebSvc-AlertService.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\URSWebSvc\URSWebSvc-AlertSettings.xml</File>
+	<File dir="Global">OSG\SMART\ApSmartAgent-AlertService.xml</File>
+    <File dir="Global">OSG\SMART\ApSmartAgent-AlertSettings.xml</File>
+  </Alerts>
+  <CockpitQueries>
+    <File dir="Global">AutopilotClient\AutopilotClient-CockpitQueries.xml</File>
+  </CockpitQueries>
+  <PerfCounters>
+	<File dir="Global">AutopilotClient\AutopilotClient-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepShared\Shared-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\URSBE\URSUTL\URSUTL-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\ARSWebSvc\AppRepSvc-perfcounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\ARSWebSvc\ARSWebSvc-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\Malware\MHImporter\MHImporter-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\Malware\MHOrchSvc\MHOrchSvc-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepAPP\Malware\MHWebGSvc\MHWebGSvc-PerfCounters.xml</File>	
+    <File dir="Global">OSG\Safety\SafetyRepURL\TELWebSvc\TELWebSvc-PerfCounters.xml</File>	
+    <File dir="Global">OSG\Safety\SafetyRepURL\URSWebSvc\URSWebSvc-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\FBSUTL\FBSUTL-PerfCounters.xml</File>
+	<File dir="Global">OSG\Safety\SafetyRepURL\FBSWebSite\FBSWebSite-PerfCounters.xml</File>
+        <File dir="Global">OSG\Safety\SafetySmrt\Smrt\Smrt-PerfCounters.xml</File>
+
+  </PerfCounters>
+</Files>

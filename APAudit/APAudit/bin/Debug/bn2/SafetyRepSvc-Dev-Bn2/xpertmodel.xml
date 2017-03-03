@@ -1,0 +1,1238 @@
+<Service>
+  <Name>SafetyRepSmrt7-Dev-DB5</Name>
+  <DisplayName>SafetyRepSmrt7-Dev-DB5</DisplayName>
+  <Description>Safety - Rep Smrt Dev 7 Environment</Description>
+  <Roles>
+<!--ARS-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvc</DisplayName>
+        <Name>ARSWebSvc</Name>
+        <Description>ARSWebSvc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcTrial0</DisplayName>
+        <Name>ARSWebSvcTrial0</Name>
+        <Description>ARSWebSvcTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcTrial1</DisplayName>
+        <Name>ARSWebSvcTrial1</Name>
+        <Description>ARSWebSvcTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcExp1NT</DisplayName>
+        <Name>ARSWebSvcExp1NT</Name>
+        <Description>ARSWebSvcExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcExp1FT</DisplayName>
+        <Name>ARSWebSvcExp1FT</Name>
+        <Description>ARSWebSvcExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcExp2NT</DisplayName>
+        <Name>ARSWebSvcExp2NT</Name>
+        <Description>ARSWebSvcExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcExp2FT</DisplayName>
+        <Name>ARSWebSvcExp2FT</Name>
+        <Description>ARSWebSvcExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>ARSWebSvcTest</DisplayName>
+        <Name>ARSWebSvcTest</Name>
+        <Description>ARSWebSvcTest</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>AppRepSvc</DisplayName>
+        <Name>AppRepSvc</Name>
+        <Description>AppRepSvc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End ARS-->
+	
+<!--App360-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360Svc</DisplayName>
+        <Name>App360Svc</Name>
+        <Description>App360Svc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcTrial0</DisplayName>
+        <Name>App360SvcTrial0</Name>
+        <Description>App360SvcTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcTrial1</DisplayName>
+        <Name>App360SvcTrial1</Name>
+        <Description>App360SvcTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcExp1NT</DisplayName>
+        <Name>App360SvcExp1NT</Name>
+        <Description>App360SvcExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcExp1FT</DisplayName>
+        <Name>App360SvcExp1FT</Name>
+        <Description>App360SvcExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcExp2NT</DisplayName>
+        <Name>App360SvcExp2NT</Name>
+        <Description>App360SvcExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939069" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Application Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>App360SvcExp2FT</DisplayName>
+        <Name>App360SvcExp2FT</Name>
+        <Description>App360SvcExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End App360-->	
+	
+<!--Malware-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939097" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Malware Harness" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>MHOrchSvc</DisplayName>
+        <Name>MHOrchSvc</Name>
+        <Description>MHOrchSvc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939097" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Malware Harness" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>MEPOrch</DisplayName>
+        <Name>MEPOrch</Name>
+        <Description>MEPOrch</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End Malware-->
+	
+<!--TEL-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939188" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Telemetry" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>TELWebSvc</DisplayName>
+        <Name>TELWebSvc</Name>
+        <Description>TELWebSvc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939188" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Telemetry" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>TELWebSvcExp1NT</DisplayName>
+        <Name>TELWebSvcExp1NT</Name>
+        <Description>TELWebSvcExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939188" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Telemetry" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>TELWebSvcExp1FT</DisplayName>
+        <Name>TELWebSvcExp1FT</Name>
+        <Description>TELWebSvcExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939188" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Telemetry" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>TELWebSvcTrial0</DisplayName>
+        <Name>TELWebSvcTrial0</Name>
+        <Description>TELWebSvcTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939188" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Telemetry" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>TELWebSvcTrial1</DisplayName>
+        <Name>TELWebSvcTrial1</Name>
+        <Description>TELWebSvcTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+<!--END TEL-->
+	
+<!--URS-->
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvc</DisplayName>
+        <Name>URSWebSvc</Name>
+        <Description>URSWebSvc</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcExp1NT</DisplayName>
+        <Name>URSWebSvcExp1NT</Name>
+        <Description>URSWebSvcExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcExp1FT</DisplayName>
+        <Name>URSWebSvcExp1FT</Name>
+        <Description>URSWebSvcExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcExp2NT</DisplayName>
+        <Name>URSWebSvcExp2NT</Name>
+        <Description>URSWebSvcExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcExp2FT</DisplayName>
+        <Name>URSWebSvcExp2FT</Name>
+        <Description>URSWebSvcExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcTrial0</DisplayName>
+        <Name>URSWebSvcTrial0</Name>
+        <Description>URSWebSvcTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebSvcTrial1</DisplayName>
+        <Name>URSWebSvcTrial1</Name>
+        <Description>URSWebSvcTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--END URS-->
+	
+<!--URS Partners-->
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebP</DisplayName>
+        <Name>URSWebP</Name>
+        <Description>URSWebP</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPExp1FT</DisplayName>
+        <Name>URSWebPExp1FT</Name>
+        <Description>URSWebPExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPExp1NT</DisplayName>
+        <Name>URSWebPExp1NT</Name>
+        <Description>URSWebPExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPExp2FT</DisplayName>
+        <Name>URSWebPExp2FT</Name>
+        <Description>URSWebPExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPExp2NT</DisplayName>
+        <Name>URSWebPExp2NT</Name>
+        <Description>URSWebPExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPTrial0</DisplayName>
+        <Name>URSWebPTrial0</Name>
+        <Description>URSWebPTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebPTrial1</DisplayName>
+        <Name>URSWebPTrial1</Name>
+        <Description>URSWebPTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--END Partners-->
+	
+<!--URSWebAPI-->
+   <Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPI</DisplayName>
+        <Name>URSWebAPI</Name>
+        <Description>URSWebAPI</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPITrial0</DisplayName>
+        <Name>URSWebAPITrial0</Name>
+        <Description>URSWebAPITrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPITrial1</DisplayName>
+        <Name>URSWebAPITrial1</Name>
+        <Description>URSWebAPITrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPIExp1NT</DisplayName>
+        <Name>URSWebAPIExp1NT</Name>
+        <Description>URSWebAPIExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPIExp1FT</DisplayName>
+        <Name>URSWebAPIExp1FT</Name>
+        <Description>URSWebAPIExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+		<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPIExp2NT</DisplayName>
+        <Name>URSWebAPIExp2NT</Name>
+        <Description>URSWebAPIExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSWebAPIExp2FT</DisplayName>
+        <Name>URSWebAPIExp2FT</Name>
+        <Description>URSWebAPIExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End URSWebAPI-->
+	
+<!--FBS-->
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSite</DisplayName>
+        <Name>FBSWebSite</Name>
+        <Description>FBSWebSite</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteExp1FT</DisplayName>
+        <Name>FBSWebSiteExp1FT</Name>
+        <Description>FBSWebSiteExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteExp1NT</DisplayName>
+        <Name>FBSWebSiteExp1NT</Name>
+        <Description>FBSWebSiteExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteExp2FT</DisplayName>
+        <Name>FBSWebSiteExp2FT</Name>
+        <Description>FBSWebSiteExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteExp2NT</DisplayName>
+        <Name>FBSWebSiteExp2NT</Name>
+        <Description>FBSWebSiteExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteTrial0</DisplayName>
+        <Name>FBSWebSiteTrial0</Name>
+        <Description>FBSWebSiteTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSWebSiteTrial1</DisplayName>
+        <Name>FBSWebSiteTrial1</Name>
+        <Description>FBSWebSiteTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--END FBS-->
+	
+<!--FBS UTL-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939059" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Feedback Site" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>FBSUTL</DisplayName>
+        <Name>FBSUTL</Name>
+        <Description>FBSUTL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End FBS UTL-->
+		
+<!--URS BE-->
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSBVT</DisplayName>
+        <Name>URSBVT</Name>
+        <Description>URSBVT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSReport</DisplayName>
+        <Name>URSReport</Name>
+        <Description>URSReport</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSSQL</DisplayName>
+        <Name>URSSQL</Name>
+        <Description>URSSQL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	  <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>URSUTL</DisplayName>
+        <Name>URSUTL</Name>
+        <Description>URSUTL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\URSPerf\UrfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--URS BE-->
+
+<!--Smrt-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>Smrt</DisplayName>
+        <Name>Smrt</Name>
+        <Description>Smrt</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtTrial0</DisplayName>
+        <Name>SmrtTrial0</Name>
+        <Description>SmrtTrial0</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtTrial1</DisplayName>
+        <Name>SmrtTrial1</Name>
+        <Description>SmrtTrial1</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtExp1NT</DisplayName>
+        <Name>SmrtExp1NT</Name>
+        <Description>SmrtExp1NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtExp1FT</DisplayName>
+        <Name>SmrtExp1FT</Name>
+        <Description>SmrtExp1FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtExp2NT</DisplayName>
+        <Name>SmrtExp2NT</Name>
+        <Description>SmrtExp2NT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+	<Properties>
+        <Property Key="SCID" Value="6482569" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="SmartScreen Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SmrtExp2FT</DisplayName>
+        <Name>SmrtExp2FT</Name>
+        <Description>SmrtExp2FT</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"/>
+      </PerformanceCounters>
+    </Role>
+<!--End Smrt-->
+	
+<!--BAO-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>BAOSQL</DisplayName>
+        <Name>BAOSQL</Name>
+        <Description>BAOSQL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>BAOUTL</DisplayName>
+        <Name>BAOUTL</Name>
+        <Description>BAOUTL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>BAOWeb</DisplayName>
+        <Name>BAOWeb</Name>
+        <Description>BAOWeb</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End BAO-->
+	
+<!--Grading Pipeline-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>GRDSQL</DisplayName>
+        <Name>GRDSQL</Name>
+        <Description>GRDSQL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939122" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="URL Reputation Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>GRDUTL</DisplayName>
+        <Name>GRDUTL</Name>
+        <Description>GRDUTL</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End Grading Pipeline-->
+	
+<!--SP Shared-->
+	<Role>
+     <Properties>
+        <Property Key="SCID" Value="4939108" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Safety Shared Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SRPVMHost</DisplayName>
+        <Name>SRPVMHost</Name>
+        <Description>SRPVMHost</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End SP Shared-->
+
+<!--SFTP-->
+   <Role>
+     <Properties>
+        <Property Key="SCID" Value="4939108" />
+        <Property Key="GroupName" Value="EnS-Enterprise and Security" />
+        <Property Key="TeamName" Value="SP - Safety Platform" />
+        <Property Key="ServiceName" Value="Safety Shared Service" />
+      </Properties>
+        <AutopilotManagedEnvironment>true</AutopilotManagedEnvironment>
+        <DisplayName>SRPSFTP</DisplayName>
+        <Name>SRPSFTP</Name>
+        <Description>SRPSFTP</Description>
+      <PerformanceCounters>
+      <RequestIn 
+        All="\ASP.NET Applications(__Total__)\Requests/Sec"
+        Latency="\Application Reputation Web Service\ArfLastLoadedMinutes"/>
+      </PerformanceCounters>
+    </Role>
+<!--End Rep SFTP-->  
+
+  </Roles>
+  <LogicalGroups>
+    <Group Id="Safety-RepSvcNonProd" DisplayName="Safety-RepSvcNonProd" GroupType="VirtualService" />
+	<Group Id="Safety-RepNonProd" DisplayName="Safety-RepNonProd" GroupType="Team" />
+	<Group Id="Safety" DisplayName="Safety" GroupType="Team" />
+  </LogicalGroups>
+    <TargetEnvironment>Xpert</TargetEnvironment>
+    <AcquisitionEnvironment>PROD</AcquisitionEnvironment>
+</Service>
+

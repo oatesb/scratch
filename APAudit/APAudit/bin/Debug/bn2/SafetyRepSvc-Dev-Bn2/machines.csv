@@ -1,0 +1,10 @@
+#Version: 1.0
+#Fields: MachineName,Image,MachineFunction,ScaleUnit,RequestedSku
+BN4SCH101112803,retail.amd64,NU,0,WCS-HP15-i22f
+BN4SCH101112806,retail.amd64,NU,0,WCS-HP15-i22f
+BN4SCH102092615,retail.amd64,Smrt,2,WCS-Quanta15-i22f
+BN4SCH102092616,retail.amd64,Smrt,2,WCS-Quanta15-i22f
+BN4SCH102093105,retail.amd64,Smrt,1,WCS-Quanta15-i22f
+BN4SCH102093106,retail.amd64,Smrt,1,WCS-Quanta15-i22f
+BN4SCH101112808,retail.amd64,NU,0,WCS-HP15-i22f
+BN4SCH101112812,retail.amd64,NU,0,WCS-HP15-i22f

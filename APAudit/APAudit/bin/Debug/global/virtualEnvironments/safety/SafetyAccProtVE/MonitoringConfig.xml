@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Files>
+  <Alerts>
+    <File dir="Global">AutopilotClient\AutopilotClient-AlertService.xml</File>
+    <File dir="Global">AutopilotClient\AutopilotClient-AlertSettings.xml</File>
+    <File dir="Global">OSG\SMART\ApSmartAgent-AlertService.xml</File>
+    <File dir="Global">OSG\SMART\ApSmartAgent-AlertSettings.xml</File>
+  </Alerts>
+  <CockpitQueries>
+    <File dir="Global">AutopilotClient\AutopilotClient-CockpitQueries.xml</File>
+  </CockpitQueries>
+  <PerfCounters>
+    <File dir="Global">AutopilotClient\AutopilotClient-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\APSAWebSvc\APSAWebSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\APSAWebSvcTZ\APSAWebSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\APSAWebSvcT1\APSAWebSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\GBCSQLSvc\GBCSQLSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\GBCUTLSvc\GBCUTLSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\IpRepWebSvc\IpRepWebSvc-PerfCounters.xml</File>
+   <File dir="Global">OSG\Safety\SafetyAccProt\IpRepWebSvcTZ\IpRepWebSvc-PerfCounters.xml</File>
+   <File dir="Global">OSG\Safety\SafetyAccProt\IpRepWebSvcT1\IpRepWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRAppFabricSvc\SGRAppFabricSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRWebSvc\SGRWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRWebSvcTZ\SGRWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRWebSvcT1\SGRWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRSQLSvc\SGRSQLSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\AccProtAPDrive\AccProtAPDrive-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\PhoneRepSvc\PhoneRepSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\PhoneRepSvcTZ\PhoneRepSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\PhoneRepSvcT1\PhoneRepSvc-perfcounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRLegacyWebSvc\SGRLegacyWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRLegacyWebSvcTZ\SGRLegacyWebSvc-PerfCounters.xml</File>
+    <File dir="Global">OSG\Safety\SafetyAccProt\SGRLegacyWebSvcT1\SGRLegacyWebSvc-PerfCounters.xml</File>
+  </PerfCounters>
+</Files>
