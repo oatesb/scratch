@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- C:\data\wingds\windows\VRAS\VRAS>xsd VRAS.xsd /c /n:VRAS /out:C:\data\wingds\windows\VRAS\VRAS -->
+<xs:schema targetNamespace="http://microsoft.com/WindowsLive/Safety/VRAS.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://microsoft.com/WindowsLive/Safety/VRAS.xsd"
+    xmlns:mstns="http://microsoft.com/WindowsLive/Safety/VRAS.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="VRASConfiguration" type="VRASConfigurationType"></xs:element>
+
+  <xs:complexType name="GlobalSettings">
+    <xs:sequence>
+      <xs:element name="GlobalOverridableSettings" type="SettingThatAreOverridableType"></xs:element>
+      <xs:element name="EventSource" type ="xs:string"></xs:element>
+      <xs:element name="ServiceStopTimeOutSec " type="xs:integer"></xs:element>
+      <xs:element name="ErrorLogPath" type ="xs:string"></xs:element>
+      <xs:element name="RegExMatchNotFoundDefaultString" type="xs:string"></xs:element>
+      <xs:element name="TempFileExt" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  
+  <xs:complexType name="VRASConfigurationType">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Settings" type="GlobalSettings" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="Batch" type="BatchType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BatchType">
+    <xs:sequence>
+      <xs:element name="BatchSettings" type="BatchSettingsType" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="CopyCollection" type="CopyJobsType" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CopyJobsType">
+    <xs:sequence>
+      <xs:element name="CopyCollection" type="CopyJobOptionsType" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BatchSettingsType">
+    <xs:sequence>
+      <xs:element name="BatchName" type ="xs:string"></xs:element>
+      <xs:element name="BatchSettingOverrides" type ="SettingThatAreOverridableType" minOccurs="0" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CopyJobOptionsType">
+    <xs:sequence>
+      <xs:element name="SourceFolder" type="SourceType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+      <xs:element name="DestinationFolder" type="DestinationType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SourceType">
+    <xs:sequence>
+      <xs:element name="SourceFolderPath" type="xs:string"></xs:element>
+      <xs:element name="SourceSettingOverrides" type="SettingThatAreOverridableType" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="FileRegExFilter" type="xs:string"></xs:element>
+      <xs:element name="FolderRegExFilter" type="xs:string"></xs:element>
+      <xs:element name="CopyType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Root"></xs:enumeration>
+            <xs:enumeration value="Mirror"></xs:enumeration>
+            <xs:enumeration value="CombineToRoot"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DestinationType">
+    <xs:sequence>
+      <xs:element name="DestinationLocation" type="xs:string"></xs:element>
+      <xs:element name="HashCompareFlag" type="xs:boolean"></xs:element>
+      <xs:element name="ArchiveSettings" type="ArchiveFeatureType" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ArchiveFeatureType">
+    <xs:sequence>
+      <xs:element name="ArchiveFeatureEnabled" type ="xs:boolean"></xs:element>
+      <xs:element name="ArchiveLines" type="ArchiveLineType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ArchiveLineType">
+    <xs:sequence>
+      <xs:element name="Tier" type="xs:integer"></xs:element>
+      <xs:element name="Option" type="ArchiveType"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ArchiveType">
+    <xs:sequence>
+      <xs:element name="ArchiveOption">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="RegExOnFileName"></xs:enumeration>
+            <xs:enumeration value="FileTimeLastModifyTime"></xs:enumeration>
+            <xs:enumeration value="FileTimeDateCreatedTime"></xs:enumeration>
+            <xs:enumeration value="FileTimeLastModifyTimeUtc"></xs:enumeration>
+            <xs:enumeration value="FileTimeDateCreatedTimeUtc"></xs:enumeration>
+            <xs:enumeration value="StaticName"></xs:enumeration>
+            <xs:enumeration value="CopySetName"></xs:enumeration>
+            <xs:enumeration value="RegExOnFilePath"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ArchiveOptionValue" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SettingThatAreOverridableType">
+    <xs:sequence>
+      <xs:element name="NewFileDelaySeconds" type ="xs:integer"></xs:element>
+      <xs:element name="DeleteAfterCopy" type ="xs:boolean"></xs:element>
+      <xs:element name="CopyZeroByteFiles" type ="xs:boolean"></xs:element>
+      <xs:element name="CopyThreadPerSource" type ="xs:integer"></xs:element>
+      <xs:element name="SleepBetweenBatchesMs" type ="xs:integer"></xs:element>
+      <xs:element name="CopyFromFirstDestinationDir" type ="xs:boolean"></xs:element>
+      <xs:element name="CopyRetryCount" type ="xs:integer"></xs:element>
+      <xs:element name="RetrySleepMs" type ="xs:integer"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+
+

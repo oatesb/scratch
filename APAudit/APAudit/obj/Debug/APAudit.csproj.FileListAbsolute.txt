@@ -8,3 +8,6 @@ C:\Source\Code\APAudit\APAudit\obj\Debug\APAudit.exe
 C:\Source\Code\APAudit\APAudit\obj\Debug\APAudit.pdb
 C:\Source\Code\APAudit\APAudit\bin\Debug\Newtonsoft.Json.dll
 C:\Source\Code\APAudit\APAudit\bin\Debug\Newtonsoft.Json.xml
+C:\Source\scratch\APAudit\APAudit\bin\Debug\APAudit.exe.config
+C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.exe
+C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.pdb

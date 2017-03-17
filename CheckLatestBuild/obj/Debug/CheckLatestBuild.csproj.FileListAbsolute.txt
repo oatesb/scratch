@@ -4,3 +4,6 @@ C:\Source\scratch\CheckLatestBuild\bin\Debug\CheckLatestBuild.pdb
 C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.csprojResolveAssemblyReference.cache
 C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.exe
 C:\Source\scratch\CheckLatestBuild\obj\Debug\CheckLatestBuild.pdb
+C:\Source\scratch\CheckLatestBuild\bin\Debug\CheckLatestBuildSettings.json
+C:\Source\scratch\CheckLatestBuild\bin\Debug\Newtonsoft.Json.dll
+C:\Source\scratch\CheckLatestBuild\bin\Debug\Newtonsoft.Json.xml
