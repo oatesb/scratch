@@ -1,7 +1,7 @@
 ﻿{
 	"outputPath": "\\\\BOONE-DEV\\TestSeDeploy\\results.txt",
-  "rootPath": "\\\\unistore\\build\\Safety\\SmartScreenSvc\\master",
-  "orderType": "date",
+  "rootPath": "\\\\BOONE-DEV\\TestSeDeploy",
+  "orderType": "string",
 	"validations": [{
 			"pathFromRoot": "\\logs\\ActivityLog.xml",
 			"type": "file"

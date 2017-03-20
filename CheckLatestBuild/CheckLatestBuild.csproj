@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildStatus.cs" />
     <Compile Include="LatestBuildSettings.cs" />
     <Compile Include="LatestBuildValidation.cs" />
     <Compile Include="Program.cs" />
