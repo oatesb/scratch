@@ -14,18 +14,33 @@ namespace CheckLatestBuild
         static void Main(string[] args)
         {
 
-            string action = "WriteCurrentBuild";
+            //string action = "WriteCurrentBuild";
             //string action = "WriteLastCompletedBuild";
-
+            string action;
             string configPath;
             // get the default config if there are no params for config file name passed in.
-            if(args.Length == 0)
+            if(args.Length == 1)
             {
+                action = args[0];
                 configPath = ConfigurationManager.AppSettings["defaultConfigFile"];
+            }
+            else if (args.Length == 2)
+            {
+                action = args[0];
+                configPath = args[1];
             }
             else
             {
-                configPath = args[0];
+                action = "";
+                configPath = "";
+                Console.WriteLine("Invalid Arguments: must be 1 or 2 items <action> <(optional) configpath>");
+                Environment.Exit(5);
+            }
+
+            if (!action.Equals("WriteCurrentBuild", StringComparison.CurrentCultureIgnoreCase) && !action.Equals("WriteLastCompletedBuild", StringComparison.CurrentCultureIgnoreCase))
+            {
+                Console.WriteLine("Action must be {0} or {1}", "WriteCurrentBuild", "WriteLastCompletedBuild");
+                Environment.Exit(5);
             }
 
             if (!TestPath(configPath, "file"))
