@@ -65,7 +65,7 @@ namespace CheckLatestBuild
 
             }
 
-            Console.Read();
+            //Console.Read();
 
         }
 
