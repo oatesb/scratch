@@ -11,11 +11,17 @@ namespace CheckLatestBuild
 {
     class Program
     {
+        static readonly int buildFolderCount = 10;
+        static readonly DateTime lastCompleteBuildCompleteDateUTCExceptionValue = new DateTime(1980, 1, 1);
+        static readonly int hoursSinceLastDeployException = 10000; 
+
         static void Main(string[] args)
         {
 
             //string action = "WriteCurrentBuild";
             //string action = "WriteLastCompletedBuild";
+            //"orderType": "string",
+            //"orderType": "date",
             string action;
             string configPath;
             // get the default config if there are no params for config file name passed in.
@@ -64,9 +70,6 @@ namespace CheckLatestBuild
             {
 
             }
-
-            //Console.Read();
-
         }
 
         /// <summary>
@@ -87,6 +90,7 @@ namespace CheckLatestBuild
                     {
                         status.LastCompleteBuild = status.CurrentRunningBuild;
                         status.CurrentRunningBuild = string.Empty;
+                        status.LastCompleteBuildCompleteDateUTC = DateTime.UtcNow;
 
                         Console.WriteLine("Updating the LastCompleteBuild : {0} and setting CurrentRunningBuild to be empty", status.LastCompleteBuild);
                         File.WriteAllText(outputPath, JsonConvert.SerializeObject(status, Formatting.Indented));
@@ -122,23 +126,35 @@ namespace CheckLatestBuild
                 if (File.Exists(settings.outputPath))
                 {
                     status = JsonConvert.DeserializeObject<BuildStatus>(File.ReadAllText(settings.outputPath));
+
+                    // get the time in hours since the last build finished.
+                    var hoursSinceLastDeploy = ReturnLastBuildTimeDelta(status);
+                    hoursSinceLastDeploy += 100;
+
                     if (BuildFirstGreaterThanSecondByStringName(lastBuild, status.LastCompleteBuild))
                     {
-                        status.CurrentRunningBuild = lastBuild;
-                        File.WriteAllText(settings.outputPath, JsonConvert.SerializeObject(status, Formatting.Indented));
                         Console.WriteLine("output file found setting the CurrentRunningBuild to {0} which is newer than {1}", lastBuild, status.LastCompleteBuild);
+                    }
+                    else if (hoursSinceLastDeploy > settings.forceDeployAgeHours)
+                    {
+                        Console.WriteLine("Forcing Deployment due to age {0} hours since last deployment which is over the max time {1}. The build {0} is the latest build", hoursSinceLastDeploy , settings.forceDeployAgeHours, lastBuild);
                     }
                     else
                     {
                         // exit with error code if the version didn't increase.
-                        Console.WriteLine("The build {0} is the same or less than {1}", lastBuild, status.LastCompleteBuild);
+                        Console.WriteLine("The build {0} is the same or less than {1} and the last build deploy is {2} hours old under the threshold of {3}", lastBuild, status.LastCompleteBuild, hoursSinceLastDeploy, settings.forceDeployAgeHours);
                         Environment.Exit(1);
                     }
-                    
+
+                    // run these on success only
+                    status.CurrentRunningBuild = lastBuild;
+                    File.WriteAllText(settings.outputPath, JsonConvert.SerializeObject(status, Formatting.Indented));
+
                 }
                 else // the network file wasn't there.  So fil it out and let the build number be assumed to be newer
                 {
                     status = new BuildStatus();
+                    status.LastCompleteBuildCompleteDateUTC = lastCompleteBuildCompleteDateUTCExceptionValue;
                     status.CurrentRunningBuild = lastBuild;
                     File.WriteAllText(settings.outputPath, JsonConvert.SerializeObject(status, Formatting.Indented));
                     Console.WriteLine("output file not found creating {0} and setting the CurrentRunningBuild to {1}", settings.outputPath, lastBuild);
@@ -150,6 +166,23 @@ namespace CheckLatestBuild
             {
                 throw ex;
             }
+        }
+
+        private static int ReturnLastBuildTimeDelta(BuildStatus status)
+        {
+            int hoursSinceLastDeploy;
+            try
+            {
+                var now = DateTime.UtcNow;
+                hoursSinceLastDeploy = (int)(now - status.LastCompleteBuildCompleteDateUTC).TotalHours;
+            }
+            catch (Exception)
+            {
+
+                hoursSinceLastDeploy = hoursSinceLastDeployException;
+            }
+
+            return hoursSinceLastDeploy;
         }
 
         /// <summary>
@@ -182,11 +215,11 @@ namespace CheckLatestBuild
             IEnumerable<DirectoryInfo> dirsInOrder;
             if (settings.orderType.ToLower() == "date")
             {
-                dirsInOrder = dirs.OrderByDescending(d => d.CreationTime).Take(10);
+                dirsInOrder = dirs.OrderByDescending(d => d.CreationTime).Take(buildFolderCount);
             }
             else
             {
-                dirsInOrder = dirs.OrderByDescending(d => d.Name).Take(10);
+                dirsInOrder = dirs.OrderByDescending(d => d.Name).Take(buildFolderCount);
             }
 
             Console.WriteLine("++++++++ {0} Order +++++++++++", settings.orderType);
@@ -216,22 +249,6 @@ namespace CheckLatestBuild
             Console.WriteLine("Last Good Build: {0}", theCurrentBuild.Name);
 
             return theCurrentBuild.Name;
-
-            //if (File.Exists(outputPath))
-            //{
-            //    var lastBuild = File.ReadAllText(outputPath);
-
-            //    var result = BuildFirstGreaterThanSecondByStringName(selectedBuild.Name, lastBuild);
-
-            //    if (result)
-            //    {
-            //        File.WriteAllText(outputPath, selectedBuild.Name);
-            //    }
-            //}
-            //else
-            //{
-            //    File.WriteAllText(outputPath, selectedBuild.Name);
-            //}
         }
 
         public static string CombinePath(string root, string tail)

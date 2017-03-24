@@ -2,6 +2,7 @@
 	"outputPath": "\\\\BOONE-DEV\\TestSeDeploy\\results.txt",
   "rootPath": "\\\\BOONE-DEV\\TestSeDeploy",
   "orderType": "string",
+  "forceDeployAgeHours":  72,
 	"validations": [{
 			"pathFromRoot": "\\logs\\ActivityLog.xml",
 			"type": "file"

@@ -10,5 +10,6 @@ namespace CheckLatestBuild
     {
         public string CurrentRunningBuild { get; set; }
         public string LastCompleteBuild { get; set; }
+        public DateTime LastCompleteBuildCompleteDateUTC { get; set; }
     }
 }
