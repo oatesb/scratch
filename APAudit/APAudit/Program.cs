@@ -13,13 +13,9 @@ namespace APAudit
     {
         static void Main(string[] args)
         {
-
-            
-
             var parser = new FileIniDataParser();
 
             parser.Parser.Configuration.AssigmentSpacer = "";
-            
 
             List<string> folderFilter = new List<string>();
             folderFilter.Add("bn2");
@@ -29,7 +25,6 @@ namespace APAudit
             List<string> fileFilter = new List<string>();
             fileFilter.Add("bn2");
             fileFilter.Add("Environment.ini");
-
 
             var files = Utils.GetFilteredFiles(".", SearchOption.AllDirectories, folderFilter, fileFilter);
 
@@ -47,7 +42,21 @@ namespace APAudit
                 parser.WriteFile(newFile, data);
 
             }
-           
+
+            Section one = new Section("one");
+            Section oneComp = new Section("one");
+            Section two = new Section("two");
+
+            one.UpsertSectionItem(new SectionItem("food", "pizza", SectionItemStatus.source));
+            one.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
+            one.UpsertSectionItem(new SectionItem("name", "Ben", SectionItemStatus.source));
+
+            oneComp.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
+            oneComp.UpsertSectionItem(new SectionItem("name", "Jill", SectionItemStatus.source));
+            oneComp.UpsertSectionItem(new SectionItem("sport", "football", SectionItemStatus.source));
+
+            one.CompareThisAgainst(oneComp);
+
 
             Console.Read();
         }

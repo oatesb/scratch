@@ -11,3 +11,10 @@ C:\Source\Code\APAudit\APAudit\bin\Debug\Newtonsoft.Json.xml
 C:\Source\scratch\APAudit\APAudit\bin\Debug\APAudit.exe.config
 C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.exe
 C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.pdb
+C:\Source\scratch\APAudit\APAudit\bin\Debug\APAudit.exe
+C:\Source\scratch\APAudit\APAudit\bin\Debug\APAudit.pdb
+C:\Source\scratch\APAudit\APAudit\bin\Debug\INIFileParser.dll
+C:\Source\scratch\APAudit\APAudit\bin\Debug\Newtonsoft.Json.dll
+C:\Source\scratch\APAudit\APAudit\bin\Debug\INIFileParser.xml
+C:\Source\scratch\APAudit\APAudit\bin\Debug\Newtonsoft.Json.xml
+C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.csprojResolveAssemblyReference.cache
