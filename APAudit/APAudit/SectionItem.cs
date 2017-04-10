@@ -19,6 +19,7 @@ namespace APAudit
     {
         public string Name { get; set; }
         public string Value { get; set; }
+        public string DesiredValue { get; set; }
         public SectionItemStatus Status { get; set; }
 
         public SectionItem(string name, string value, SectionItemStatus status)
@@ -26,6 +27,7 @@ namespace APAudit
             Name = name;
             Value = value;
             Status = status;
+            DesiredValue = string.Empty;
         }
 
         public override int GetHashCode()

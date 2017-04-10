@@ -30,22 +30,28 @@ namespace APAudit
 
             foreach (var item in files)
             {
-                IniData data = parser.ReadFile(item.FullName);
+                Configuration c = new Configuration(item.FullName, item.FullName + ".tmp");
+                Console.WriteLine();
+                //IniData data = parser.ReadFile(item.FullName);
 
-                data["General"].AddKey("Ben", "Oates");
+                //data["General"].AddKey("Ben", "Oates");
 
-                //data.Sections.AddSection("FoooBaaar");
-                //data["FoooBaaar"].AddKey("Hello", "GoodBye");
+                ////data.Sections.AddSection("FoooBaaar");
+                ////data["FoooBaaar"].AddKey("Hello", "GoodBye");
 
 
-                string newFile = Path.Combine(item.DirectoryName + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(item.Name) + "_temp" + item.Extension);
-                parser.WriteFile(newFile, data);
+                //string newFile = Path.Combine(item.DirectoryName + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(item.Name) + "_temp" + item.Extension);
+                //parser.WriteFile(newFile, data);
 
             }
 
+            SectionContainer container = new SectionContainer();
             Section one = new Section("one");
             Section oneComp = new Section("one");
             Section two = new Section("two");
+
+            container.AddSection(one);
+            container.AddSection(two);
 
             one.UpsertSectionItem(new SectionItem("food", "pizza", SectionItemStatus.source));
             one.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
@@ -55,7 +61,7 @@ namespace APAudit
             oneComp.UpsertSectionItem(new SectionItem("name", "Jill", SectionItemStatus.source));
             oneComp.UpsertSectionItem(new SectionItem("sport", "football", SectionItemStatus.source));
 
-            one.CompareThisAgainst(oneComp);
+            var foo = one.CompareThisAgainst(oneComp);
 
 
             Console.Read();
