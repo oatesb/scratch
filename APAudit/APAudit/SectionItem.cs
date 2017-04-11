@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,21 @@ namespace APAudit
         public string DesiredValue { get; set; }
         public SectionItemStatus Status { get; set; }
 
+        [JsonConstructor]
         public SectionItem(string name, string value, SectionItemStatus status)
         {
             Name = name;
             Value = value;
             Status = status;
             DesiredValue = string.Empty;
+        }
+
+        public SectionItem(string name, string value, string desiredVal, SectionItemStatus status)
+        {
+            Name = name;
+            Value = value;
+            Status = status;
+            DesiredValue = desiredVal;
         }
 
         public override int GetHashCode()

@@ -18,3 +18,4 @@ C:\Source\scratch\APAudit\APAudit\bin\Debug\Newtonsoft.Json.dll
 C:\Source\scratch\APAudit\APAudit\bin\Debug\INIFileParser.xml
 C:\Source\scratch\APAudit\APAudit\bin\Debug\Newtonsoft.Json.xml
 C:\Source\scratch\APAudit\APAudit\obj\Debug\APAudit.csprojResolveAssemblyReference.cache
+C:\Source\scratch\APAudit\APAudit\bin\Debug\auditvalues.json

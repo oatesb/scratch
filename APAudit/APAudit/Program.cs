@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IniParser;
 using IniParser.Model;
+using Newtonsoft.Json;
 
 namespace APAudit
 {
@@ -28,6 +29,8 @@ namespace APAudit
 
             var files = Utils.GetFilteredFiles(".", SearchOption.AllDirectories, folderFilter, fileFilter);
 
+            AuditSectionContainer ac = JsonConvert.DeserializeObject<AuditSectionContainer>(File.ReadAllText(@"auditvalues.json"));
+
             foreach (var item in files)
             {
                 Configuration c = new Configuration(item.FullName, item.FullName + ".tmp");
@@ -43,8 +46,11 @@ namespace APAudit
                 //string newFile = Path.Combine(item.DirectoryName + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(item.Name) + "_temp" + item.Extension);
                 //parser.WriteFile(newFile, data);
 
+                c.PerformAudit(ac);
+
             }
 
+            
             SectionContainer container = new SectionContainer();
             Section one = new Section("one");
             Section oneComp = new Section("one");
@@ -60,9 +66,6 @@ namespace APAudit
             oneComp.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
             oneComp.UpsertSectionItem(new SectionItem("name", "Jill", SectionItemStatus.source));
             oneComp.UpsertSectionItem(new SectionItem("sport", "football", SectionItemStatus.source));
-
-            var foo = one.CompareThisAgainst(oneComp);
-
 
             Console.Read();
         }

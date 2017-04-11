@@ -75,6 +75,50 @@ namespace APAudit
             }
         }
 
+        public void PerformAudit(AuditSectionContainer audit)
+        {
+            // must have at least these in the source from the audit side
+            foreach (var item in audit.MustContainSections)
+            {
+                Section s = SectionData.GetSection(item.Name);
+                if (s != null)
+                {
+                    s.CompareThisAgainst(item);
+                    
+                }
+                else
+                {
+                    Section newSection = new Section(item.Name);
+                    foreach (var i in item.Items)
+                    {
+                        newSection.Items.Add(new SectionItem(i.Name, string.Empty, i.Value, SectionItemStatus.missing));
+                    }
+                    SectionData.AddSection(s);
+                }
+            }
+
+            // source must look exactly like these.
+            // must have at least these in the source from the audit side
+            foreach (var item in audit.ExactMatchSections)
+            {
+                Section s = SectionData.GetSection(item.Name);
+                if (s != null)
+                {
+                    s.CompareThisAgainst(item);
+                }
+                else
+                {
+                    Section newSection = new Section(item.Name);
+                    foreach (var i in item.Items)
+                    {
+                        newSection.Items.Add(new SectionItem(i.Name, i.Value, SectionItemStatus.missing));
+                    }
+                    SectionData.AddSection(s);
+                }
+            }
+
+        }
+
 
 
     }

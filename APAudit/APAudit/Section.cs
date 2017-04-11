@@ -28,6 +28,8 @@ namespace APAudit
             if (itemFound != null)
             {
                 itemFound.Value = item.Value;
+                itemFound.DesiredValue = item.DesiredValue;
+                itemFound.Status = item.Status;
             }
             else
             {
@@ -58,18 +60,17 @@ namespace APAudit
         }
 
         /// <summary>
-        /// Takes in another section and compairs its values for each key agaist the calling Section.
+        /// Takes in another section and compairs its values for each key agaist the calling Section.  It will update the source for desired values and/or insert missing data
         /// If the section names don't match then throws an exception
         /// </summary>
         /// <param name="other"></param>
         /// <returns> A new Section with all the results for all comparisons</returns>
-        public Section CompareThisAgainst(Section other)
+        public void CompareThisAgainst(Section other)
         {
             if (this.Name != other.Name)
             {
                 throw new Exception(string.Format("Can't compare two sections with different names.  You passed in {1} and {0}", other.Name, this.Name));
             }
-            Section result = new Section(this.Name);
 
             var sourceDict = this.ReturnItemsAsDictionary();
             var compDict = other.ReturnItemsAsDictionary();
@@ -78,18 +79,19 @@ namespace APAudit
                 // same key
                 if (compDict.ContainsKey(key))
                 {
+                    // same key values match?
                     if (sourceDict[key] == compDict[key])
                     {
-                        result.Items.Add(new SectionItem(key, sourceDict[key], SectionItemStatus.ok));
+                        UpsertSectionItem(new SectionItem(key, sourceDict[key], SectionItemStatus.ok));
                     }
-                    else // source and compare keys don't match
+                    else // source and compare keys match but values don't match
                     {
-                        result.Items.Add(new SectionItem(key, sourceDict[key], SectionItemStatus.invalid));
+                        UpsertSectionItem(new SectionItem(key, sourceDict[key], compDict[key], SectionItemStatus.invalid));
                     }
                 }
                 else //extra key in source
                 {
-                    result.Items.Add(new SectionItem(key, sourceDict[key], SectionItemStatus.extra));
+                    UpsertSectionItem(new SectionItem(key, sourceDict[key], SectionItemStatus.extra));
                 }
             }
 
@@ -99,10 +101,9 @@ namespace APAudit
                 // missing key in the source
                 if (!sourceDict.ContainsKey(key))
                 {
-                    result.Items.Add(new SectionItem(key, compDict[key], SectionItemStatus.missing));
+                    UpsertSectionItem(new SectionItem(key, string.Empty, compDict[key], SectionItemStatus.missing));
                 }
             }
-            return result;
         }
     }
 }
