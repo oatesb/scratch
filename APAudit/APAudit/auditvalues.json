@@ -1,9 +1,8 @@
 ﻿{
   "name": "test audit",
-  "MustContainSections": [
+  "Sections": [
     {
       "name": "General",
-      "auditType": "mustContain",
       "items": [
         {
           "name": "Contact",
@@ -37,23 +36,5 @@
         }
       ]
     }
-  ],
-  "ExactMatchSections": [
-    {
-      "name": "Bar",
-      "items": [
-        {
-          "name": "Name",
-          "value": "kkk",
-          "Status": "comparison"
-        },
-        {
-          "name": "sport",
-          "value": "baseball",
-          "Status": "comparison"
-        }
-      ]
-    }
-  ],
-
-}
+  ]
+ }

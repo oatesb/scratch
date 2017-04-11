@@ -47,26 +47,9 @@ namespace APAudit
                 //parser.WriteFile(newFile, data);
 
                 c.PerformAudit(ac);
+                c.DisplayAuditResults();
 
             }
-
-            
-            SectionContainer container = new SectionContainer();
-            Section one = new Section("one");
-            Section oneComp = new Section("one");
-            Section two = new Section("two");
-
-            container.AddSection(one);
-            container.AddSection(two);
-
-            one.UpsertSectionItem(new SectionItem("food", "pizza", SectionItemStatus.source));
-            one.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
-            one.UpsertSectionItem(new SectionItem("name", "Ben", SectionItemStatus.source));
-
-            oneComp.UpsertSectionItem(new SectionItem("pet", "dog", SectionItemStatus.source));
-            oneComp.UpsertSectionItem(new SectionItem("name", "Jill", SectionItemStatus.source));
-            oneComp.UpsertSectionItem(new SectionItem("sport", "football", SectionItemStatus.source));
-
             Console.Read();
         }
     }

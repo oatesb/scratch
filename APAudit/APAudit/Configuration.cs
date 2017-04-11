@@ -42,7 +42,7 @@ namespace APAudit
 
                 foreach (var item in _iniData.Sections)
                 {
-                    Section s = new Section(item.SectionName);
+                    Section s = new Section(item.SectionName, SectionStatus.ok);
                     foreach (var sectionItem in item.Keys)
                     {
                         s.UpsertSectionItem(new SectionItem(sectionItem.KeyName, sectionItem.Value, SectionItemStatus.source));
@@ -77,8 +77,7 @@ namespace APAudit
 
         public void PerformAudit(AuditSectionContainer audit)
         {
-            // must have at least these in the source from the audit side
-            foreach (var item in audit.MustContainSections)
+            foreach (var item in audit.Sections)
             {
                 Section s = SectionData.GetSection(item.Name);
                 if (s != null)
@@ -88,35 +87,80 @@ namespace APAudit
                 }
                 else
                 {
-                    Section newSection = new Section(item.Name);
+                    Section newSection = new Section(item.Name, SectionStatus.missing);
                     foreach (var i in item.Items)
                     {
                         newSection.Items.Add(new SectionItem(i.Name, string.Empty, i.Value, SectionItemStatus.missing));
                     }
-                    SectionData.AddSection(s);
+                    SectionData.AddSection(newSection);
                 }
             }
+        }
 
-            // source must look exactly like these.
-            // must have at least these in the source from the audit side
-            foreach (var item in audit.ExactMatchSections)
+        public void DisplayAuditResults()
+        {
+            Console.WriteLine("Displaying Audit results for {0}", FilePathOriginal);
+            foreach (var item in SectionData.Sections)
             {
-                Section s = SectionData.GetSection(item.Name);
-                if (s != null)
+                
+                var color = Console.ForegroundColor;
+                switch (item.Status)
                 {
-                    s.CompareThisAgainst(item);
+                    case SectionStatus.ok:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\tSection: {0}", item.Name);
+                        Console.WriteLine("\t=================================================");
+                        break;
+                    case SectionStatus.missing:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tSection: {0}", item.Name);
+                        Console.WriteLine("\t=================================================");
+                        break;
+                    default:
+                        break;
                 }
-                else
-                {
-                    Section newSection = new Section(item.Name);
-                    foreach (var i in item.Items)
-                    {
-                        newSection.Items.Add(new SectionItem(i.Name, i.Value, SectionItemStatus.missing));
-                    }
-                    SectionData.AddSection(s);
-                }
-            }
+                Console.ForegroundColor = color;
+                Console.WriteLine("\t\tName   Value   DesiredValue   Status");
 
+                foreach (var sectionitem in item.Items)
+                {
+                    color = Console.ForegroundColor;
+                    switch (sectionitem.Status)
+                    {
+                        case SectionItemStatus.source:
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        case SectionItemStatus.comparison:
+                            Console.ForegroundColor = ConsoleColor.DarkCyan;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        case SectionItemStatus.extra:
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        case SectionItemStatus.missing:
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        case SectionItemStatus.invalid:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        case SectionItemStatus.ok:
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                        default:
+                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                            Console.WriteLine("\t\t{0}: {1}: {2}: {3}", sectionitem.Name, sectionitem.Value, sectionitem.DesiredValue, sectionitem.Status);
+                            break;
+                    }
+
+                    Console.ForegroundColor = color;
+                }
+
+            }
         }
 
 

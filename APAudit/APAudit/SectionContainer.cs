@@ -6,23 +6,10 @@ using System.Threading.Tasks;
 
 namespace APAudit
 {
-    public class SectionContainer
+    public class SectionContainer : SectionContainerShell
     {
-        public List<Section> Sections { get; set; }
-
-        public SectionContainer()
+        public SectionContainer() : base()
         {
-            Sections = new List<Section>();
-        }
-
-        public void AddSection(Section s)
-        {
-            Sections.Add(s);
-        }
-
-        public Section GetSection(String name)
-        {
-            return Sections.Where(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
         }
     }
 }

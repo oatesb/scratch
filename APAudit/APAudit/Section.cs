@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace APAudit
 {
+    public enum SectionStatus { ok, missing}
     public class Section
     {
         public string Name { get; set; }
+        public SectionStatus Status { get; set; }
         public List<SectionItem> Items { get; set; }
 
-        public Section(string name)
+        public Section(string name, SectionStatus status)
         {
             Name = name;
+            Status = status;
             Items = new List<SectionItem>();
         }
 
