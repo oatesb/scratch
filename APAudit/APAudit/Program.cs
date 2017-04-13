@@ -35,51 +35,16 @@ namespace APAudit
             {
                 Configuration c = new Configuration(item.FullName, item.FullName + ".tmp");
                 Console.WriteLine();
-                //IniData data = parser.ReadFile(item.FullName);
-
-                //data["General"].AddKey("Ben", "Oates");
-
-                ////data.Sections.AddSection("FoooBaaar");
-                ////data["FoooBaaar"].AddKey("Hello", "GoodBye");
-
-
-                //string newFile = Path.Combine(item.DirectoryName + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(item.Name) + "_temp" + item.Extension);
-                //parser.WriteFile(newFile, data);
 
                 c.PerformAudit(ac);
-                c.DisplayAuditResults();
+                c.DisplayAuditResults(true);
+                //c.DisplayAuditResults(false);
+
+                c.UpdateAuditResults();
+                Console.WriteLine("\n==============================================================================\n");
 
             }
             Console.Read();
-        }
-    }
-
-
-    public static class Utils
-    {
-        public static List<FileInfo> GetFilteredFiles(string rootFolder, SearchOption resuriveFlag, List<string> folderNameContains, List<string> fileNameEquals )
-        {
-            var files = new DirectoryInfo(rootFolder).GetFiles("*", resuriveFlag);
-
-            List<FileInfo> returnme = new List<FileInfo>();
-            foreach (var item in files)
-            {
-                Console.WriteLine("Process: {0}", item.FullName);
-                if (folderNameContains != null && folderNameContains.Any(x=> item.DirectoryName.Contains(x)))
-                {
-                    Console.WriteLine("\t{0} Passed the folder filter.  Seeing if it now passed the file filters", item.FullName);
-                    if (fileNameEquals != null && fileNameEquals.Any(x=> item.Name.Equals(x, StringComparison.CurrentCultureIgnoreCase)))
-                    {
-                        Console.WriteLine("\t\tAdd: {0}", item.FullName);
-                        returnme.Add(item);
-                    }
-                    
-                }
-                
-
-            }
-
-            return returnme;
         }
     }
 }
