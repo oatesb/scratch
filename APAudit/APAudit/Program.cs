@@ -14,22 +14,10 @@ namespace APAudit
     {
         static void Main(string[] args)
         {
-            var parser = new FileIniDataParser();
-
-            parser.Parser.Configuration.AssigmentSpacer = "";
-
-            List<string> folderFilter = new List<string>();
-            folderFilter.Add("bn2");
-            folderFilter.Add("goodsfsdf");
-            folderFilter.Add("global");
-
-            List<string> fileFilter = new List<string>();
-            fileFilter.Add("bn2");
-            fileFilter.Add("Environment.ini");
-
-            var files = Utils.GetFilteredFiles(".", SearchOption.AllDirectories, folderFilter, fileFilter);
-
+            
             AuditSectionContainer ac = JsonConvert.DeserializeObject<AuditSectionContainer>(File.ReadAllText(@"auditvalues.json"));
+
+            var files = ac.GetFilteredFiles(".", SearchOption.AllDirectories);
 
             foreach (var item in files)
             {

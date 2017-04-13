@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AuditSectionContainer.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="FileFilter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section.cs" />

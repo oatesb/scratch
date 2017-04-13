@@ -13,6 +13,7 @@ namespace APAudit
     {
         public string FilePathOriginal { get; set; }
         public string FilePathSave { get; set; }
+
         public SectionContainer SectionData { get; set; }
         private IniData _iniData;
         private FileIniDataParser _iniParser;
@@ -61,7 +62,7 @@ namespace APAudit
                 throw;
             }
         }
-
+        
         public void SaveIniConfig()
         {
             try

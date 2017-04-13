@@ -1,40 +1,60 @@
 ﻿{
   "name": "test audit",
-  "Sections": [
+  "FileFilters": [
     {
-      "name": "General",
-      "items": [
-        {
-          "name": "Contact",
-          "value": "REPSE;SmartScreen-AP-Dev;beoates",
-          "Status": "comparison"
-        },
-        {
-          "name": "Group",
-          "value": "ENS",
-          "Status": "comparison"
-        },
-        {
-          "name": "Team",
-          "value": "Safety",
-          "Status": "comparison"
-        }
-      ]
+      "name": "bn2",
+      "type": "folderName"
     },
     {
-      "name": "Foo",
-      "items": [
-        {
-          "name": "Name",
-          "value": "jjj",
-          "Status": "comparison"
-        },
-        {
-          "name": "sport",
-          "value": "football",
-          "Status": "comparison"
-        }
-      ]
+      "name": "global",
+      "type": "folderName"
+    },
+    {
+      "name": "bn2",
+      "type": "fileName"
+    },
+    {
+      "name": "Environment.ini",
+      "type": "fileName"
     }
-  ]
+  ],
+    "Sections"
+    :
+    [
+      {
+        "name": "General",
+        "items": [
+          {
+            "name": "Contact",
+            "value": "REPSE;SmartScreen-AP-Dev;beoates",
+            "Status": "comparison"
+          },
+          {
+            "name": "Group",
+            "value": "ENS",
+            "Status": "comparison"
+          },
+          {
+            "name": "Team",
+            "value": "Safety",
+            "Status": "comparison"
+          }
+        ]
+      },
+      {
+        "name": "Foo",
+        "items": [
+          {
+            "name": "Name",
+            "value": "jjj",
+            "Status": "comparison"
+          },
+          {
+            "name": "sport",
+            "value": "football",
+            "Status": "comparison"
+          }
+        ]
+      }
+    ]
  }
