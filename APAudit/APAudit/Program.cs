@@ -14,8 +14,13 @@ namespace APAudit
     {
         static void Main(string[] args)
         {
-            
-            AuditSectionContainer ac = JsonConvert.DeserializeObject<AuditSectionContainer>(File.ReadAllText(@"auditvalues.json"));
+            string auditFile = @"auditvalues.json";
+
+            if (args.Length == 1)
+            {
+                auditFile = args[0];
+            }
+            AuditSectionContainer ac = JsonConvert.DeserializeObject<AuditSectionContainer>(File.ReadAllText(auditFile));
 
             var files = ac.GetFilteredFiles(".", SearchOption.AllDirectories);
 
@@ -32,7 +37,6 @@ namespace APAudit
                 Console.WriteLine("\n==============================================================================\n");
 
             }
-            Console.Read();
         }
     }
 }

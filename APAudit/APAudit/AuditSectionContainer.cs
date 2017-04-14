@@ -41,21 +41,20 @@ namespace APAudit
             List<FileInfo> returnme = new List<FileInfo>();
             foreach (var item in files)
             {
-                Console.WriteLine("Process: {0}", item.FullName);
                 if (folderNameContains != null && folderNameContains.Any(x => item.DirectoryName.Contains(x)))
                 {
-                    Console.WriteLine("\t{0} Passed the folder filter.  Seeing if it now passed the file filters", item.FullName);
                     if (fileNameEquals != null && fileNameEquals.Any(x => item.Name.Equals(x, StringComparison.CurrentCultureIgnoreCase)))
                     {
-                        Console.WriteLine("\t\tAdd: {0}", item.FullName);
                         returnme.Add(item);
                     }
-
                 }
-
-
             }
 
+            Console.WriteLine("Found {0} files that meets your filters\n===============================", returnme.Count);
+            foreach (var item in returnme)
+            {
+                Console.WriteLine(item.FullName);
+            }
             return returnme;
         }
 
