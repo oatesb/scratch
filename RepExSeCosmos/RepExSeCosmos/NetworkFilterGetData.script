@@ -1,0 +1,44 @@
+﻿//Script GUID:13b7983f-69d9-4447-beaf-087f195287b6
+//Used for tracking history
+
+RESOURCE "/local/Dlls/Canonicalizer.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.Core.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.CosmosCore.dll";
+USING Microsoft.Live.Safety.DQ;
+
+#DECLARE Offset int = (int)(DateTime.UtcNow - DateTime.Today.ToUniversalTime()).TotalHours +1; 
+
+//WindowSize = Days to go back
+logQuery = VIEW "/shares/wlspRepEx.int/DataRO/Views/Latest/SmartScreenLogs/NetworkFilter/NetworkFilterLogs.view" PARAMS(Units = "Hour", WindowSize = 24, Offset = @Offset);
+
+TrafficByClientFull =
+    SELECT
+    LogTime,
+    ClientVersion,
+    MsaGlobalDeviceId,
+    DeviceId,
+    NetJoinStatus,
+    ClientId,
+    UserCid,
+    UserSid,
+    FinalRatingString,
+    UrlRating,
+    IpRating
+
+    
+    FROM logQuery
+    ORDER BY LogTime;
+
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Filtered-Day2.tsv";
+
+#CS
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using ScopeRuntime;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Net;
+using System.Text.RegularExpressions;
+#ENDCS

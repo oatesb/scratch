@@ -1,0 +1,154 @@
+﻿//Script GUID:13b7983f-69d9-4447-beaf-087f195287b6
+//Used for tracking history
+
+RESOURCE "/local/Dlls/Canonicalizer.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.Core.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.CosmosCore.dll";
+USING Microsoft.Live.Safety.DQ;
+
+#DECLARE Offset int = (int)(DateTime.UtcNow - DateTime.Today.ToUniversalTime()).TotalHours +1; 
+
+//WindowSize = Days to go back
+logQuery = VIEW "/shares/wlspRepEx.int/DataRO/Views/Latest/SmartScreenLogs/NetworkFilter/NetworkFilterLogs.view" PARAMS(Units = "Hour", WindowSize = 24, Offset = @Offset);
+
+TrafficByClientFull =
+  //OneIntel Selections
+    SELECT 
+    LogTime,
+    ProviderId,
+    OperationalState,
+    CorrelationVector,
+    LogId,
+
+    // RequestInfo
+    ConnectingIp,
+    ForwardedForIps,
+    UserAgent,
+    XHeaders,
+    AllHeaders,
+    ClientEtag,
+    // Full Request
+    FullRequest,
+    // Product Info
+    ProductGuid,
+    ProductGuidFamily,
+    ProductGuidProduct,
+    ProductGuidRelease,
+    // Audit data
+    Api,
+    ServerName,
+    ScenarioName,
+    BuildVersion,
+    ServerOsVersion,
+    ServerIpakVersion,
+
+    // Request
+    RequestUrl,
+    RequestUrlCanonicalForm,
+    RequestUrlHostName,
+    RequestUrlRegisteredDomain,
+    RequestUrlHash,
+    RequestUrlPiiScrubbed,
+    RequestIp,
+
+    // Referrer
+    ReferrerUrl,
+    ReferrerUrlCanonicalForm,
+    ReferrerUrlHostName,
+    ReferrerUrlRegisteredDomain,
+    ReferrerUrlHash,
+    ReferrerUrlPiiScrubbed,
+    ReferrerIp,
+
+    CorrelationId,
+    ClientUserAgent,
+
+    // Caller Id
+    CallerApplicationType,
+    CallerApplicationName,
+    CallerApplicationPath,
+    // Client Id
+    ClientId,
+    ClientVersion,
+    // Device Id
+    InternetExplorerVersion,
+    EdgeVersion,
+    MsaGlobalDeviceId,
+    DeviceId,
+    DeviceLocale,
+    NetJoinStatus,
+    OsVersion,
+    DeviceFamily,
+    // User Id
+    UserCid,
+    UserLocale,
+    UserSid,
+    TopTrafficFileHash,
+
+    // Response Data
+    TelemetryId,
+    IsAllowed,
+    FinalRatingString,
+    FinalRatingCategory,
+    FinalRatingConfidence,
+                UrlRating,
+                UrlMatch,
+                UrlInheritance,
+                UrlReputationSource,
+                IpRating,
+                IpMatch,
+                IpInheritance,
+                IpReputationSource,
+                CacheActions.Count AS CacheActionsCount,
+                DataActions.Count AS DataActionsCount,
+                PingAction,
+    IsSafeResult,
+
+                // Provider info
+    BurfState,
+    BurfFileName,
+    SpurfState,
+    SpurfFileName,
+
+    // Legacy productGuid columns
+    LegacyProductGuid,
+    LegacyProductGuidFamily,
+    LegacyProductGuidProduct,
+    LegacyProductGuidRelease,
+    
+    
+    
+    
+    //------------------------------------------------------------------------
+    // END CUSTOM SECTION
+    //------------------------------------------------------------------------
+
+    // Generated
+    // <DevUseOnly/>
+    // Type of log, can be "Raw" or "Processed".
+    _LogType,
+    // <DevUseOnly/>
+    _LogSource,
+    // <DevUseOnly/>
+    _IsError,
+    // <DevUseOnly/>
+    _ErrorText,
+    // <DevUseOnly/>
+    _ErrorLine
+    
+    FROM logQuery
+    ORDER BY LogTime;
+
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Filtered-Day.tsv";
+
+#CS
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using ScopeRuntime;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Net;
+using System.Text.RegularExpressions;
+#ENDCS

@@ -41,7 +41,7 @@ namespace APAudit
             List<FileInfo> returnme = new List<FileInfo>();
             foreach (var item in files)
             {
-                if (folderNameContains != null && folderNameContains.Any(x => item.DirectoryName.Contains(x)))
+                if (folderNameContains != null && folderNameContains.All(x => item.DirectoryName.Contains(x)))
                 {
                     if (fileNameEquals != null && fileNameEquals.Any(x => item.Name.Equals(x, StringComparison.CurrentCultureIgnoreCase)))
                     {

@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <DataGrid x:Name="myGrid" Grid.Row="1" ItemsSource="{Binding Path=foolist}" AutoGenerateColumns="False" SelectionUnit="Cell">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idName" Width="Auto" Header="Name" Binding="{Binding MyStr}"/>
+                <DataGridTextColumn x:Name="idInt" Width="Auto" Header="Int" Binding="{Binding MyInt}"/>
+                <DataGridTextColumn x:Name="idComment" Width="Auto" Header="Comment" Binding="{Binding MyComment}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="button" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="128,229,-2,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+
+        <!--DataContext="{x:Static s:Environment.OSVersion}"-->
+
+    </Grid>
+</Window>

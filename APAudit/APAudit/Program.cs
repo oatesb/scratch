@@ -22,11 +22,11 @@ namespace APAudit
             }
             AuditSectionContainer ac = JsonConvert.DeserializeObject<AuditSectionContainer>(File.ReadAllText(auditFile));
 
-            var files = ac.GetFilteredFiles(".", SearchOption.AllDirectories);
+            var files = ac.GetFilteredFiles(@"..\.", SearchOption.AllDirectories);
 
             foreach (var item in files)
             {
-                Configuration c = new Configuration(item.FullName, item.FullName + ".tmp");
+                Configuration c = new Configuration(item.FullName, item.FullName + ".sample.tmp");
                 Console.WriteLine();
 
                 c.PerformAudit(ac);

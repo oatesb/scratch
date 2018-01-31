@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,18 +12,27 @@ namespace FileFormatConversion
     {
         static void Main(string[] args)
         {
-            foo();
+            if (args.Length != 2)
+            {
+                Console.WriteLine("Need 2 arguments InputFile OutputFile");
+            }
+            foo(args[0], args[1]);
         }
 
-        public static void foo()
+        public static void foo(string inputFile, string outputFile)
         {
-            if (File.Exists(@"D:\URF\my-utf8.urf"))
+            Stopwatch watch = new Stopwatch();
+            
+            if (File.Exists(outputFile))
             {
-                File.Delete(@"D:\URF\my-utf8.urf");
+                Console.WriteLine("Deleting existing output file");
+                File.Delete(outputFile);
             }
-            using (StreamReader sr = new StreamReader(@"D:\URF\my.urf", Encoding.Unicode, false))
+            watch.Start();
+            Console.WriteLine("Starting Conversion In: {0} Out:{1}", inputFile, outputFile);
+            using (StreamReader sr = new StreamReader(inputFile, Encoding.Unicode, false))
             {
-                using (StreamWriter sw = new StreamWriter(@"D:\URF\my-utf8.urf", false, Encoding.UTF8))
+                using (StreamWriter sw = new StreamWriter(outputFile, false, Encoding.UTF8))
                 {
                     int readChars;
                     char[] buffer = new char[128 * 1024];
@@ -32,6 +42,13 @@ namespace FileFormatConversion
                     }
                 }
             }
+            watch.Stop();
+            Console.WriteLine("Processing Complete Took {0} seconds", (watch.ElapsedMilliseconds / 1000).ToString("#.##"));
+            FileInfo inFileInfo = new FileInfo(inputFile);
+            FileInfo outFileInfo = new FileInfo(outputFile);
+            Console.WriteLine("Original File Size: {0} KB\nOutput File Size: {1} KB", (inFileInfo.Length / 1024).ToString("#,##"), (outFileInfo.Length / 1024).ToString("#,##"));
+            decimal reductionPercent = (decimal)outFileInfo.Length / (decimal)inFileInfo.Length;
+            Console.WriteLine("Reduction of %: {0}",(reductionPercent * 100).ToString("#.##"));
         }
     }
 }

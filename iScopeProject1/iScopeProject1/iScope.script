@@ -1,0 +1,12 @@
+﻿//Script GUID:53cab2e0-e22a-4b01-93f8-64748f241345
+//Used for tracking history
+
+
+//my = VIEW @"/local/Data/Views/Latest/URF/Urf.view";
+my = VIEW @"/local/Data/Views/Latest/URF/URF.view";
+
+data =
+    SELECT TOP 19 *
+    FROM my;
+OUTPUT TO CONSOLE;
+

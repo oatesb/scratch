@@ -1,0 +1,300 @@
+﻿//Script GUID:13b7983f-69d9-4447-beaf-087f195287b6
+//Used for tracking history
+
+RESOURCE "/local/Dlls/Canonicalizer.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.Core.dll";
+REFERENCE "/local/Dlls/Microsoft.Live.Safety.DQ.CosmosCore.dll";
+USING Microsoft.Live.Safety.DQ;
+
+#DECLARE Offset int = (int)(DateTime.UtcNow - DateTime.Today.ToUniversalTime()).TotalHours +1; 
+
+//WindowSize = Days to go back
+logQuery = VIEW "/shares/wlspRepEx.int/DataRO/Views/Latest/SmartScreenLogs/NetworkFilter/NetworkFilterLogs.view" PARAMS(Units = "Hour", WindowSize = 720, Offset = @Offset);
+TrafficByClientFull =
+    SELECT LogTime.ToLocalTime().Date AS Date,
+           LogTime.ToLocalTime().Hour AS Hour,
+           ClientVersion,
+           MsaGlobalDeviceId,
+           DeviceId,
+           NetJoinStatus,
+           ClientId,
+           UserCid,
+           UserSid,
+           FinalRatingString,
+           UrlRating,
+           IpRating,
+           COUNT() AS Total
+    FROM logQuery
+    GROUP BY Date,
+             Hour,
+             ClientVersion,
+             MsaGlobalDeviceId,
+             DeviceId,
+             NetJoinStatus,
+             ClientId,
+             UserCid,
+             UserSid,
+             FinalRatingString,
+             UrlRating,
+             IpRating;
+//    ORDER BY 
+//        Date,
+//        Hour,
+//        ClientVersion,
+//        MsaGlobalDeviceId,
+//        DeviceId,
+//        NetJoinStatus,
+//        ClientId,
+//        UserCid,
+//        UserSid,
+//        FinalRatingString,
+//        UrlRating,
+//        IpRating;
+
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Filtered-YDay.tsv";
+
+//========================================================================================================
+
+
+//FilteredNetworkFilter =
+//    SELECT Date,
+//            Hour,
+//            ClientVersion, //ALL: 10.0.10011.16384
+//            MsaGlobalDeviceId, //g:6966498355555880
+//            DeviceId, //CJTWOiOdpKSH96lzRS0Lc7LGTHQnzfl0ntdJLVhHPYc=:1
+//            NetJoinStatus, //ALL: 0 = Unknown status : 1 = Computer is unjoined : 2 = Computer is joined to a workgroup : 3 = Computer is joined to a domain,
+//            ClientId, //yIj6+BEnN2qD4CWATf0tIKXCna0=
+//            UserCid, //ALL: most were blank (besides appeddge : some had something like BC199EBE-5464-CE73-5ACE-438BE50647BC
+//            UserSid, //ALL:S-1-5-21-2702878673-795188819-444038987-2781
+//            FinalRatingString, //MALW:090	
+//            UrlRating, //MALW:090	
+//            IpRating, // UNKN:100
+//            Total
+//    FROM TrafficByClientFull;
+//OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Filtered-filter.tsv";
+
+//Hourly
+MSATotal =
+    SELECT Date.ToString("yyyy-MM-dd") + " " + Hour + ":00" AS LogDateTime,
+        ClientVersion, //ALL: 10.0.10011.16384
+        //MsaGlobalDeviceId, //g:6966498355555880
+        //DeviceId, //CJTWOiOdpKSH96lzRS0Lc7LGTHQnzfl0ntdJLVhHPYc=:1
+        NetJoinStatus, //ALL: 0 = Unknown status : 1 = Computer is unjoined : 2 = Computer is joined to a workgroup : 3 = Computer is joined to a domain,
+        //ClientId, //yIj6+BEnN2qD4CWATf0tIKXCna0=
+        //UserCid, //ALL: most were blank (besides appeddge : some had something like BC199EBE-5464-CE73-5ACE-438BE50647BC
+        //UserSid, //ALL:S-1-5-21-2702878673-795188819-444038987-2781
+        FinalRatingString, //MALW:090	
+        UrlRating, //MALW:090	
+        IpRating, // UNKN:100
+        "MSA Users" AS ID,
+        SUM(Total) AS Traffic           
+    FROM TrafficByClientFull
+//    GROUP BY
+//        LogDateTime,
+//        ClientVersion,
+//        NetJoinStatus,
+//        ClientId,
+//        UserCid,
+//        UserSid,
+//        FinalRatingString,
+//        UrlRating,
+//        IpRating,
+//        ID
+    WHERE NetJoinStatus < 3 && UserCid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Cleaned-YHourly-MSA.tsv";
+
+DomainTotal =
+    SELECT Date.ToString("yyyy-MM-dd") + " " + Hour + ":00" AS LogDateTime,
+        ClientVersion, //ALL: 10.0.10011.16384
+        //MsaGlobalDeviceId, //g:6966498355555880
+        //DeviceId, //CJTWOiOdpKSH96lzRS0Lc7LGTHQnzfl0ntdJLVhHPYc=:1
+        NetJoinStatus, //ALL: 0 = Unknown status : 1 = Computer is unjoined : 2 = Computer is joined to a workgroup : 3 = Computer is joined to a domain,
+        //ClientId, //yIj6+BEnN2qD4CWATf0tIKXCna0=
+        //UserCid, //ALL: most were blank (besides appeddge : some had something like BC199EBE-5464-CE73-5ACE-438BE50647BC
+        //UserSid, //ALL:S-1-5-21-2702878673-795188819-444038987-2781
+        FinalRatingString, //MALW:090	
+        UrlRating, //MALW:090	
+        IpRating, // UNKN:100
+        "Enterprise Users" AS ID,
+        SUM(Total) AS Traffic           
+    FROM TrafficByClientFull
+//    GROUP BY
+//        LogDateTime,
+//        ClientVersion,
+//        NetJoinStatus,
+//        ClientId,
+//        UserCid,
+//        UserSid,
+//        FinalRatingString,
+//        UrlRating,
+//        IpRating,
+//        ID
+    WHERE NetJoinStatus > 2 && UserSid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Cleaned-YHourly-Domain.tsv";
+
+
+DeviceTotal =
+    SELECT Date.ToString("yyyy-MM-dd") + " " + Hour + ":00" AS LogDateTime,
+        ClientVersion, //ALL: 10.0.10011.16384
+        //MsaGlobalDeviceId, //g:6966498355555880
+        //DeviceId, //CJTWOiOdpKSH96lzRS0Lc7LGTHQnzfl0ntdJLVhHPYc=:1
+        NetJoinStatus, //ALL: 0 = Unknown status : 1 = Computer is unjoined : 2 = Computer is joined to a workgroup : 3 = Computer is joined to a domain,
+        //ClientId, //yIj6+BEnN2qD4CWATf0tIKXCna0=
+        //UserCid, //ALL: most were blank (besides appeddge : some had something like BC199EBE-5464-CE73-5ACE-438BE50647BC
+        //UserSid, //ALL:S-1-5-21-2702878673-795188819-444038987-2781
+        FinalRatingString, //MALW:090	
+        UrlRating, //MALW:090	
+        IpRating, // UNKN:100
+        "No-MSA Consumer" AS ID,
+        SUM(Total) AS Traffic           
+    FROM TrafficByClientFull
+//    GROUP BY
+//        LogDateTime,
+//        ClientVersion,
+//        NetJoinStatus,
+//        ClientId,
+//        UserCid,
+//        UserSid,
+//        FinalRatingString,
+//        UrlRating,
+//        IpRating,
+//        ID    
+    WHERE (NetJoinStatus < 3 AND UserCid == "") OR (NetJoinStatus > 2 && UserSid == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/NetworkFilter/NetworkFilter-Cleaned-YHourly-Device.tsv";
+
+/*
+//Daily
+MSATotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS LogDateTime,
+           ScenarioName,
+           ProductGuidRelease,
+           ClientVersion,
+           EdgeVersion, //NEW
+           InternetExplorerVersion, //NEW
+           NetJoinStatus,
+           UserLocale,
+           BarfMatchCriteria, //1 None = 0, FileHash = 1, AuthenticodeHash = 2, SignerCertHash = 4, IssuerCertHash = 8,
+           ResponseRatingString, //ALLW:100
+           CuxId,
+           "MSA Users" AS ID,
+           SUM(Total) AS Traffic
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus < 3 && UserCid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-MSA.tsv";
+
+DomainTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS LogDateTime,
+           ScenarioName,
+           ProductGuidRelease,
+           ClientVersion,
+           EdgeVersion, //NEW
+           InternetExplorerVersion, //NEW
+           NetJoinStatus,
+           UserLocale,
+           BarfMatchCriteria, //1 None = 0, FileHash = 1, AuthenticodeHash = 2, SignerCertHash = 4, IssuerCertHash = 8,
+           ResponseRatingString, //ALLW:100
+           CuxId,
+           "Enterprise Users" AS ID,
+           SUM(Total) AS Traffic
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus > 2 && UserSid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Domain.tsv";
+
+DeviceTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS LogDateTime,
+           ScenarioName,
+           ProductGuidRelease,
+           ClientVersion,
+           EdgeVersion, //NEW
+           InternetExplorerVersion, //NEW
+           NetJoinStatus,
+           UserLocale,
+           BarfMatchCriteria, //1 None = 0, FileHash = 1, AuthenticodeHash = 2, SignerCertHash = 4, IssuerCertHash = 8,
+           ResponseRatingString, //ALLW:100
+           CuxId,
+           "No-MSA Consumer" AS ID,
+           SUM(Total) AS Traffic
+    FROM FilteredAppRepShell
+    WHERE (NetJoinStatus < 3 AND UserCid == "") OR (NetJoinStatus > 2 && UserSid == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Device.tsv";
+
+//Unique User Counts by Hour
+MSATotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") + " " + LogHour + ":00" AS LogDateTime,
+           COUNT(DISTINCT UserCid) AS Users,
+           "MSA Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus < 3 && UserCid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-MSA-UHour.tsv";
+
+DomainTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") + " " + LogHour + ":00" AS LogDateTime,
+           COUNT(DISTINCT UserSid) AS Users,
+           "Enterprise Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus > 2 && UserSid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Domain-UHour.tsv";
+
+DeviceTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") + " " + LogHour + ":00" AS LogDateTime,
+           COUNT(DISTINCT DeviceId) AS UsersD,
+           "No-MSA Consumer" AS ID
+    FROM FilteredAppRepShell
+    WHERE (NetJoinStatus < 3 AND UserCid == "") OR (NetJoinStatus > 2 && UserSid == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Device-UHour.tsv";
+
+OtherTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") + " " + LogHour + ":00" AS LogDateTime,
+           COUNT(DISTINCT UserSid) AS UserS,
+           "Other ID Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE (NetJoinStatus < 3 AND UserCid == "") AND (NetJoinStatus < 3 AND DeviceId == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Other-UHour.tsv";
+
+
+//By Day
+MSATotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS Date,
+           COUNT(DISTINCT UserCid) AS Users,
+           "MSA Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus < 3 && UserCid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-MSA-Uday.tsv";
+
+DomainTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS Date,
+           COUNT(DISTINCT UserSid) AS Users,
+           "Enterprise Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE NetJoinStatus > 2 && UserSid != ""; 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Domain-Uday.tsv";
+
+DeviceTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS Date,
+           COUNT(DISTINCT DeviceId) AS UsersD,
+           "No-MSA Consumer" AS ID
+    FROM FilteredAppRepShell
+    WHERE (NetJoinStatus < 3 AND UserCid == "") OR (NetJoinStatus > 2 && UserSid == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Device-Uday.tsv";
+
+OtherTotal =
+    SELECT LogDate.ToString("yyyy-MM-dd") AS Date,
+           COUNT(DISTINCT UserSid) AS UserS,
+           "Other ID Users" AS ID
+    FROM FilteredAppRepShell
+    WHERE (NetJoinStatus < 3 AND UserCid == "") AND (NetJoinStatus < 3 AND DeviceId == ""); 
+OUTPUT TO "/local/Output/Reporting/SafetyReporting/SmartScreen/AppRepShell/AppRepShell-Cleaned-YDay-Other-Uday.tsv";
+
+*/
+
+#CS
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using ScopeRuntime;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Net;
+using System.Text.RegularExpressions;
+#ENDCS
