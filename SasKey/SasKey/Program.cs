@@ -22,11 +22,14 @@ namespace SasKey
 
             CloudBlobContainer c = serviceClient.GetContainerReference("overrides");
 
-            GetContainerSasUri(c);
+            SharedAccessBlobPermissions perms = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read;
+            DateTime endDate = DateTime.UtcNow.AddYears(10);
+
+            GetContainerSasUri(c, perms, endDate);
         }
 
 
-        private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
+        private static string GetContainerSasUri(CloudBlobContainer container, SharedAccessBlobPermissions perms, DateTime endDate, string storedPolicyName = null)
         {
             string sasContainerToken;
 
@@ -39,8 +42,8 @@ namespace SasKey
                 {
                     // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
                     // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
-                    SharedAccessExpiryTime = DateTime.UtcNow.AddYears(10),
-                    Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
+                    SharedAccessExpiryTime = endDate,
+                    Permissions = perms
                 };
 
                 // Generate the shared access signature on the container, setting the constraints directly on the signature.
